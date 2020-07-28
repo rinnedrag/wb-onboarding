@@ -36,9 +36,9 @@ func (v *videoConvert) Do(someString string) (resultStr string, err error) {
 }
 
 //NewVideoConverter creates private implementation of VideoConverter interface
-func NewVideoConverter(am audioMixer, vf videoFiler) VideoConverter {
+func NewVideoConverter(audioMixer audioMixer, videoFiler videoFiler) VideoConverter {
 	return &videoConvert{
-		audioMix:  am,
-		videoFile: vf,
+		audioMix:  audioMixer,
+		videoFile: videoFiler,
 	}
 }
