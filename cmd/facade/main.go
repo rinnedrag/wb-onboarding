@@ -3,14 +3,16 @@ package main
 import (
 	"fmt"
 	"log"
-	"wb-onboarding/pkg/facade/video_converter"
+	"wb-onboarding/pkg/facade/audiomixer"
+	"wb-onboarding/pkg/facade/videoconverter"
+	"wb-onboarding/pkg/facade/videofile"
 )
 
 func main() {
-	videoConverter := video_converter.NewVideoConverter()
+	videoConverter := videoconverter.NewVideoConverter(audiomixer.NewAudioMixer(), videofile.NewVideoFile())
 	str, err := videoConverter.Do("test string")
 	if err != nil {
 		log.Fatal(err)
 	}
-	fmt.Println(*str)
+	fmt.Println(str)
 }
