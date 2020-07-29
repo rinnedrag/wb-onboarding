@@ -9,8 +9,6 @@ import (
 )
 
 func main() {
-	sl := make([]int, 1000)
-	sl = append(sl, 1)
 	videoConverter := videoconverter.NewVideoConverter(audiomixer.NewAudioMixer(), videofile.NewVideoFile())
 	str, err := videoConverter.Do("test string")
 	if err != nil {
